@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
-    "target": "esnext"
-  }
+    "target": "ES6", // Alvo da compilação
+    "module": "commonjs", // Sistema de módulos
+    "strict": true, // Ativa verificações rigorosas
+    "esModuleInterop": true // Compatibilidade com módulos ES6
+  },
+  "include": ["src/**/*"], // Inclui arquivos na pasta src
+  "exclude": ["node_modules", "dist"] // Exclui node_modules e dist
 }
