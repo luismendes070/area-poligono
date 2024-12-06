@@ -1,0 +1,43 @@
+name: Deploy Project with Mapbox and Leaflet
+
+on:
+  push:
+    branches:
+      - main  # Executa o workflow ao push na branch main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # 3. Instalar dependências
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Adicionar variáveis de ambiente
+      - name: Set up environment variables
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+        run: |
+          echo "MAPBOX_ACCESS_TOKEN=${{ secrets.MAPBOX_ACCESS_TOKEN }}" > .env
+
+      # 5. Build do projeto (ajuste conforme necessário)
+      - name: Build project
+        run: npm run build
+
+      # 6. Deploy (Exemplo com GitHub Pages)
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
