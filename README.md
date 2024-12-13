@@ -1,3 +1,3 @@
-# area-poligono
+# poligonosapp-jquery
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/luismendes070/area-poligono)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/js-tjsy5g)
